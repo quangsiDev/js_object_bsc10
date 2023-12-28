@@ -1,0 +1,14 @@
+
+
+
+--array:
+1. index
+2. danh sách phần tử( array điểm)
+3. array[index]
+
+
+
+--object
+1. key
+2. mô tả 1 đối tượng chứa các thông tin khác nhau
+3. object.key
