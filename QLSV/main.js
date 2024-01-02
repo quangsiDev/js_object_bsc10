@@ -4,8 +4,8 @@ function submit() {
   var ma = document.getElementById("txtMaSV").value;
   var ten = document.getElementById("txtTenSV").value;
   var loai = document.getElementById("loaiSV").value;
-  var toan = document.getElementById("txtDiemToan").value;
-  var van = document.getElementById("txtDiemVan").value;
+  var toan = document.getElementById("txtDiemToan").value * 1;
+  var van = document.getElementById("txtDiemVan").value * 1;
   //   console.log({ ma, ten, loai, toan, van });
   //   tạo object
   var sv = {
@@ -28,4 +28,9 @@ function submit() {
     },
   };
   //   hiển thị kết quả
+  document.getElementById("spanTenSV").innerText = sv.ten;
+  document.getElementById("spanMaSV").innerText = sv.ma;
+  document.getElementById("spanLoaiSV").innerText = sv.loai;
+  document.getElementById("spanDTB").innerText = sv.tinhDTB();
+  document.getElementById("spanXepLoai").innerText = sv.xepLoai();
 }
