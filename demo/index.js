@@ -31,3 +31,25 @@ var cat1 = {
 
 console.log(cat1.name);
 cat1.talk();
+
+var dog1 = {
+  ten: "lulu",
+  tuoi: 2,
+};
+
+var dog2 = {
+  name: "kiki",
+  age: 1,
+};
+
+function Dog(_name, _age) {
+  this.nickname = _name;
+  this.age = _age;
+  this.talk = function () {
+    console.log("gâu  gâu ", this.name);
+  };
+}
+var dog3 = new Dog("kaka", 2);
+var dog4 = new Dog("keke", 1);
+var dog5 = new Dog("kuku", 1);
+console.log(dog3, dog4, dog5);
