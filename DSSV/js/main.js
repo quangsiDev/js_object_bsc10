@@ -31,14 +31,27 @@ renderDSSV();
 function themSv() {
   // lấy data từ form
   var sv = layThongTinTuForm();
-  dssv.push(sv);
+  // validate data trước khi thêm
+  var isValid = true;
+  // update isValid
+  // isValid = kiemTraRong(sv.ma, "spanMaSV") & kiemTraTrung(sv.ma, dssv, "spanMaSV");
+  // cùng 1 input &&
+  //  nối các input &
+  // validate ma sv
+  isValid = kiemTraRong(sv.ma, "spanMaSV") && kiemTraTrung(sv.ma, dssv, "spanMaSV");
+  // validate email sv
+  isValid = isValid & (kiemTraRong(sv.email, "spanEmailSV") && kiemTraEmail(sv.email));
+  // validate ten sv
+  isValid &= kiemTraRong(sv.ten, "spanTenSV");
 
-  // giữ lại data khi user load trang
-  var dataJson = JSON.stringify(dssv);
-  localStorage.setItem("DSSV", dataJson);
-
-  //   render lại layout sau khi thêm thành công
-  renderDSSV();
+  if (isValid) {
+    dssv.push(sv);
+    // giữ lại data khi user load trang
+    var dataJson = JSON.stringify(dssv);
+    localStorage.setItem("DSSV", dataJson);
+    //   render lại layout sau khi thêm thành công
+    renderDSSV();
+  }
 }
 function xoaSv(id) {
   // splice(viTriCanXoa,soLuongCanXoa)
